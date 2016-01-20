@@ -22,7 +22,7 @@ LinkedList.prototype.length = function() {
   var count = 0;
   var endFound = false;
 
-  while (current && !(endFound)){
+  while (current && !endFound){
     count ++;
     if (current.next){
       current = current.next;
