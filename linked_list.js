@@ -40,8 +40,8 @@ LinkedList.prototype.addElement = function(newNode) {
     return newNode;
   }
   var added = false
-  while (current && !(added)){
-    if(!(current.next)){
+  while (current && !added){
+    if(!current.next){
       current.next = newNode;
       added = true;
     } else { current = current.next; }
