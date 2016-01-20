@@ -17,6 +17,26 @@ var LinkedList = function(firstNode){
   this.head = firstNode;
 }
 
+LinkedList.prototype.length = function() {
+  var current = this.head
+  if(!(current)){
+    return 0;
+  }
+  var count = 0;
+  var endFound = false;
+
+  while (endFound === false){
+    count ++;
+    if (current.next){
+      current = current.next;
+    } else {endFound = true;}
+  }
+
+  return count;
+
+};
+
 var listOne = new LinkedList(start);
 
 console.log(listOne.head);
+console.log(listOne.length());
