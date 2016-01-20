@@ -49,6 +49,23 @@ LinkedList.prototype.addElement = function(newNode) {
   return newNode;
 };
 
+LinkedList.prototype.findElement = function(targetValue) {
+  var current = this.head;
+  if (!current){
+    return false;
+  }
+
+  while (current){
+    if(current.value === targetValue){
+      return true
+    } 
+    else if (current.next){
+      current = current.next
+    }
+    else { return false }
+  }
+};
+
 var listOne = new LinkedList(start);
 var listTwo = new LinkedList(end);
 var listThree = new LinkedList();
@@ -59,5 +76,13 @@ var nodeThree = new Node("three");
 listOne.addElement(nodeThree);
 console.log(listOne.length());
 console.log(listOne.head);
+
+console.log(listOne.findElement("three"));
+console.log(listOne.findElement("four"));
+var nodeFour = new Node("four");
+listOne.addElement(nodeFour);
+console.log(listOne.findElement("four"));
+console.log(listOne.findElement("beginning"));
+console.log(listThree.findElement("beginning"));
 
 
