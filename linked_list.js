@@ -19,13 +19,10 @@ var LinkedList = function(firstNode){
 
 LinkedList.prototype.length = function() {
   var current = this.head
-  if(!(current)){
-    return 0;
-  }
   var count = 0;
   var endFound = false;
 
-  while (endFound === false){
+  while (current && (endFound === false)){
     count ++;
     if (current.next){
       current = current.next;
@@ -37,6 +34,10 @@ LinkedList.prototype.length = function() {
 };
 
 var listOne = new LinkedList(start);
+var listTwo = new LinkedList(end);
+var listThree = new LinkedList();
 
 console.log(listOne.head);
 console.log(listOne.length());
+console.log(listTwo.length());
+console.log(listThree.length());
