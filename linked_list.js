@@ -18,19 +18,35 @@ var LinkedList = function(firstNode){
 }
 
 LinkedList.prototype.length = function() {
-  var current = this.head
+  var current = this.head;
   var count = 0;
   var endFound = false;
 
-  while (current && (endFound === false)){
+  while (current && !(endFound)){
     count ++;
     if (current.next){
       current = current.next;
-    } else {endFound = true;}
+    } else { endFound = true; }
   }
 
   return count;
 
+}
+
+LinkedList.prototype.addElement = function(newNode) {
+  var current = this.head;
+  if (!current){
+    this.head = newNode;
+    return newNode;
+  }
+  var added = false
+  while (current && !(added)){
+    if(!(current.next)){
+      current.next = newNode;
+      added = true;
+    } else { current = current.next; }
+  }
+  return newNode;
 };
 
 var listOne = new LinkedList(start);
@@ -39,5 +55,9 @@ var listThree = new LinkedList();
 
 console.log(listOne.head);
 console.log(listOne.length());
-console.log(listTwo.length());
-console.log(listThree.length());
+var nodeThree = new Node("three");
+listOne.addElement(nodeThree);
+console.log(listOne.length());
+console.log(listOne.head);
+
+
