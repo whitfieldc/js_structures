@@ -6,12 +6,6 @@ var Node = function(value, nextNode){
   this.next = nextNode;
 }
 
-var end = new Node("end");
-
-var start = new Node("beginning", end);
-
-console.log(start.value);
-console.log(start.next);
 
 var LinkedList = function(firstNode){
   this.head = firstNode;
@@ -65,6 +59,15 @@ LinkedList.prototype.findElement = function(targetValue) {
     else { return false }
   }
 };
+
+////////////////////////////////////////////////////
+
+var end = new Node("end");
+
+var start = new Node("beginning", end);
+
+console.log(start.value);
+console.log(start.next);
 
 var listOne = new LinkedList(start);
 var listTwo = new LinkedList(end);
