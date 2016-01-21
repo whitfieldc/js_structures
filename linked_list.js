@@ -27,6 +27,23 @@ LinkedList.prototype.length = function() {
 
 }
 
+LinkedList.prototype.loopLength = function() {
+  var current = this.head;
+  var head =  this.head;
+  var count = 0;
+  var endFound = false;
+
+  while (current && !endFound){
+    count ++;
+    if (current.next && !(current.next === head)){
+      current = current.next;
+    } else { endFound = true; }
+  }
+
+  return count;
+
+};
+
 LinkedList.prototype.addElement = function(newNode) {
   var current = this.head;
   if (!current){
@@ -52,7 +69,7 @@ LinkedList.prototype.findElement = function(targetValue) {
   while (current){
     if(current.value === targetValue){
       return true
-    } 
+    }
     else if (current.next){
       current = current.next
     }
@@ -66,26 +83,29 @@ var end = new Node("end");
 
 var start = new Node("beginning", end);
 
-console.log(start.value);
-console.log(start.next);
+// console.log(start.value);
+// console.log(start.next);
 
 var listOne = new LinkedList(start);
 var listTwo = new LinkedList(end);
 var listThree = new LinkedList();
 
-console.log(listOne.head);
-console.log(listOne.length());
+// console.log(listOne.head);
+// console.log(listOne.length());
 var nodeThree = new Node("three");
 listOne.addElement(nodeThree);
-console.log(listOne.length());
-console.log(listOne.head);
+// console.log(listOne.length());
+// console.log(listOne.head);
 
-console.log(listOne.findElement("three"));
-console.log(listOne.findElement("four"));
+// console.log(listOne.findElement("three"));
+// console.log(listOne.findElement("four"));
 var nodeFour = new Node("four");
 listOne.addElement(nodeFour);
-console.log(listOne.findElement("four"));
-console.log(listOne.findElement("beginning"));
-console.log(listThree.findElement("beginning"));
-
+// console.log(listOne.findElement("four"));
+// console.log(listOne.findElement("beginning"));
+// console.log(listThree.findElement("beginning"));
+listOne.addElement(start)
+console.log(listOne.head);
+console.log(listOne.head.next.next.next.next);
+console.log(listOne.loopLength());
 
