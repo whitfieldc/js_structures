@@ -13,22 +13,6 @@ var LinkedList = function(firstNode){
 
 LinkedList.prototype.length = function() {
   var current = this.head;
-  var count = 0;
-  var endFound = false;
-
-  while (current && !endFound){
-    count ++;
-    if (current.next){
-      current = current.next;
-    } else { endFound = true; }
-  }
-
-  return count;
-
-}
-
-LinkedList.prototype.loopLength = function() {
-  var current = this.head;
   var head =  this.head;
   var count = 0;
   var endFound = false;
@@ -91,10 +75,10 @@ var listTwo = new LinkedList(end);
 var listThree = new LinkedList();
 
 // console.log(listOne.head);
-// console.log(listOne.length());
+console.log(listOne.length());
 var nodeThree = new Node("three");
 listOne.addElement(nodeThree);
-// console.log(listOne.length());
+console.log(listOne.length());
 // console.log(listOne.head);
 
 // console.log(listOne.findElement("three"));
@@ -104,8 +88,8 @@ listOne.addElement(nodeFour);
 // console.log(listOne.findElement("four"));
 // console.log(listOne.findElement("beginning"));
 // console.log(listThree.findElement("beginning"));
-listOne.addElement(start)
-console.log(listOne.head);
-console.log(listOne.head.next.next.next.next);
-console.log(listOne.loopLength());
+listOne.addElement(end)
+// console.log(listOne.head);
+// console.log(listOne.head.next.next.next.next);
+console.log(listOne.length());
 
