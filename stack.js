@@ -10,15 +10,13 @@ Stack.prototype.push = function(newVal) {
 }
 
 Stack.prototype.pop = function() {
-  this.stack.shift();
-  return this.stack;
+  var shifted = this.stack.shift();
+  return shifted;
 }
 
 var hello = new Stack("goodbye");
-console.log(hello);
 
-hello.push("goodbye again");
-console.log(hello);
-console.log(hello.stack);
-hello.pop();
-console.log(hello);
+hello.push("second");
+hello.push("third");
+
+console.log(hello.pop()==="third");
